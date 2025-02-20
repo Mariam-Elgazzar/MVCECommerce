@@ -1,0 +1,18 @@
+﻿# Ignore build and output files
+bin/
+obj/
+.vs/
+*.user
+
+# Ignore compiled files
+*.dll
+*.exe
+*.pdb
+
+# Ignore NuGet cache files
+E-commerce/obj/
+E-commerce/bin/
+E-commerce/E-commerce.csproj.user
+
+# Ignore uploaded images (optional)
+E-commerce/wwwroot/imagse/
