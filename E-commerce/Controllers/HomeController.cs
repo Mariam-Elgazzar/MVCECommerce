@@ -36,6 +36,20 @@ namespace E_commerce.Controllers
             var products = db.Products.Where(x => x.catid == id).ToList();
             return View(products);
         }
+        [HttpGet]
+        public IActionResult ProductSearch(string xname)
+        {
+            var products = db.Products.Where(x => x.name.Contains(xname)).ToList();
+            return View(products);
+        }
+
+        [HttpPost]
+        public IActionResult sendReview(Review model)
+        {
+            db.Reviews.Add(new Review { name = model.name, email = model.email, subject = model.subject, description = model.description });
+            db.SaveChanges();
+            return RedirectToAction("index");
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

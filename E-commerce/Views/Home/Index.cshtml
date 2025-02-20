@@ -1,29 +1,28 @@
 ﻿
-@model List<Category>
+@model List<E_commerce.Models.Category>
+
+<div class="container mt-5 mb-5">
+    <form asp-action="ProductSearch" asp-controller="Home" method="get">
+        <div class="row">
+            <div class="col-sm-10">
+                <input type="text" name="xname" id="xname" class="form-control" placeholder="search" />
+            </div>
+            <input type="submit" class="col-sm-2 btn btn-primary" value="search" />
+        </div>
+    </form>
+</div>
+
 <section id="portfolio" class="portfolio section">
 
     <!-- Section Title -->
     <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+        <h2>Our Categories</h2>
+        <p>We Have A Wide Range Of Categories To Meet All Your Needs</p>
     </div><!-- End Section Title -->
 
     <div class="container">
 
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-            @* <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100"> *@
-            @*     <li data-filter="*" class="filter-active">All</li> *@
-
-            @*     @foreach(var item in Model){ *@
-            @*         <li data-filter=".@item.photo">@item.name</li> *@
-
-            @*     } *@
-           
-            @* </ul><!-- End Portfolio Filters --> *@
-
-
-
 
             <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                 <li data-filter="*" class="filter-active">All</li>
@@ -40,43 +39,9 @@
 
             <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-                @* @foreach (var item in ViewBag.Products){ *@
-                @*     <div class="col-lg-4 col-md-6 portfolio-item isotope-item @item.cat.photo"> *@
-                @*         <div class="portfolio-content h-100"> *@
-                @*            <a href="assets/img/portfolio/app-1.jpg" data-gallery="portfolio-gallery-app" class="glightbox"> *@
-                @*                <img src="assets/img/portfolio/app-1.jpg" class="img-fluid" alt=""></a> *@
-                @*             <div class="portfolio-info"> *@
-                @*                 <h4><a href="portfolio-details.html" title="More Details">@item.name</a></h4> *@
-                @*                 <p>@item.description</p> *@
-                @*             </div> *@
-                @*         </div> *@
-                @*     </div> *@
-
-                @*     <!-- End Portfolio Item --> *@
-                @* } *@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 @foreach (var item in ViewBag.Products)
                 {
-                    @* <div class="col-lg-4 col-md-6 portfolio-item isotope-item _@item.cat.id"> *@
-                    @*     <div class="portfolio-content h-100"> *@
-                    @*         <a href="@item.photo" data-gallery="portfolio-gallery-app" class="glightbox"> *@
-                    @*             <img src="@item.photo" class="img-fluid" alt="" /> *@
-                    @*         </a> *@
-                    @*     </div> *@
-                    @* </div> *@
+                   
                     <div class="col-lg-4 col-md-6 portfolio-item isotope-item _@item.cat.id">
                          <div class="portfolio-content h-100"> 
                                  <a href="@item.photo" data-gallery="portfolio-gallery-app" class="glightbox"> 
@@ -99,3 +64,98 @@
     </div>
 
 </section><!-- /Portfolio Section -->
+
+
+<!-- Contact Section -->
+<section id="contact" class="contact section">
+
+    <!-- Section Title -->
+    <div class="container section-title" data-aos="fade-up">
+        <h2>Contact Us</h2>
+        <p>We are happy to hear from you, and we will work on resolving your complaint as soon as possible </p>
+    </div><!-- End Section Title -->
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-6">
+
+                <div class="row gy-4">
+                    <div class="col-md-6">
+                        <div class="info-item" data-aos="fade" data-aos-delay="200">
+                            <i class="bi bi-geo-alt"></i>
+                            <h3>Address</h3>
+                            <p>A108 Adam Street</p>
+                            <p>New York, NY 535022</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="col-md-6">
+                        <div class="info-item" data-aos="fade" data-aos-delay="300">
+                            <a href="https://api.whatsapp.com/send?phone=+1 5589 55488 55" target="_blank">
+                                <i class="bi bi-telephone"></i>
+                            </a>
+                            <h3>Call Us</h3>
+                            <p>+1 5589 55488 55</p>
+                            <p>+1 6678 254445 41</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="col-md-6">
+                        <div class="info-item" data-aos="fade" data-aos-delay="400">
+                            <a href="mailto:info@example.com" target="_blank">
+                                <i class="bi bi-envelope"></i>
+                            </a>
+                            <h3>Email Us</h3>
+                            <p>info@example.com</p>
+                            <p>contact@example.com</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                    <div class="col-md-6">
+                        <div class="info-item" data-aos="fade" data-aos-delay="500">
+                            <i class="bi bi-clock"></i>
+                            <h3>Open Hours</h3>
+                            <p>Monday - Friday</p>
+                            <p>9:00AM - 05:00PM</p>
+                        </div>
+                    </div><!-- End Info Item -->
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+                <form asp-action="sendReview" asp-controller="Home" method="post" class="myform" data-aos="fade-up" data-aos-delay="200">
+                    <div class="row gy-4">
+
+                        <div class="col-md-6">
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required="">
+                        </div>
+
+                        <div class="col-md-6 ">
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                        </div>
+
+                        <div class="col-12">
+                            <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                        </div>
+
+                        <div class="col-12">
+                            <textarea class="form-control" name="description" id="description" rows="6" placeholder="Message" required=""></textarea>
+                        </div>
+
+                        <div class="col-12 text-center">
+
+                            <input type="submit" class="btn btn-primary" value="Send" onclick="alert('The message has been sent successfully')" />
+
+                        </div>
+                </form>
+            </div><!-- End Contact Form -->
+
+        </div>
+
+    </div>
+
+</section><!-- /Contact Section -->
